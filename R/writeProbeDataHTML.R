@@ -5,13 +5,13 @@
 #' @description This is a modified version of "writeProbeData" function from "probeAnnotation" package
 #' see \link{writeProbeData} for more details and for options
 #' @return Save files in  html files
-#' @import probeAnnotation
+## @import probeAnnotation
 ## @source ~/ownCloud/Scripts/writeProbeData_forpfam.R
 #' @export
 
 writeProbeDataHTML <- function(x, filename, col.format, id.header="id", col.names=NA, title="Gene List", header=NA, text=NA, indices=TRUE, datestamp=TRUE, css=TRUE, js=TRUE, pad="",weblink_col="gene_id",weblink=""){
   #### if http_link is set to true it create a link to pfam for that domain  using the pfam id on the dim(x) -4 column (i.e pfam_domain column)
-  require("probeAnnotation")
+  #require("probeAnnotation")
   # Check that the column names mentioned in col.format and col.names exist:
   if(!missing(col.format) && any(names(col.format) %in% colnames(x) == FALSE)) stop("invalid column names specified in col.format")
   if(!missing(col.names) && any(names(col.names) %in% colnames(x) == FALSE)) stop("invalid column names specified in col.names")
@@ -97,7 +97,7 @@ writeProbeDataHTML <- function(x, filename, col.format, id.header="id", col.name
   # Add the boilerplate text, if present:
   if(identical(datestamp, TRUE)) {
     writeLines(padLines(sprintf("<p class=\"boilerplate\">%s</p>", format(Sys.time(), "Generated: %b %d, %Y at %H:%M:%S")), n=2, padding=pad), con=output.file)
-    writeLines(padLines(sprintf("<p class=\"boilerplate\">%s</p>", format(Sys.time(), "Click the link on pfam_domain column to get more info")), n=2, padding=pad), con=output.file)
+    writeLines(padLines(sprintf("<p class=\"boilerplate\">%s</p>", format(Sys.time(), "Click the link to get more info")), n=2, padding=pad), con=output.file)
 
   }
   # Finish up the file:
@@ -106,4 +106,10 @@ writeProbeDataHTML <- function(x, filename, col.format, id.header="id", col.name
 
   # Return the processed dataframe:
   return(invisible(x))
+}
+
+
+
+padLines <- function(x, n=0, padding=" "){
+    return(sapply(x, function(line){sprintf("%s%s", paste(rep(padding, n), collapse=""), line)}))
 }

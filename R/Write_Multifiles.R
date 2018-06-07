@@ -4,14 +4,14 @@
 #' @description write multiple output file using split variable
 #' see \link{ddply} for more details
 #' @param dTable a dataframe
-#' @param split_variable colname in dTable to split the table using using values in this colum
+#' @param split_variable colname in dTable to split the table using using values in this column
 #' @param outfolder path to output folder otherwise "." or current working folder
 #' @param append_text text to add to the file name [default= "significant_differentially_expressed_genes.txt"]
 #' @param html_output save file also as sortable html table
 #' @param genExcel a logical value. Generate a excel table addtionally. [Default= TRUE]
 #' @return write output files.
 #' @import plyr
-#' @import probeAnnotation
+## @import probeAnnotation
 #' @import xlsx
 #' @export
 
