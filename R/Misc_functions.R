@@ -67,9 +67,10 @@ pkgTest <- function(package){
             #install.packages(package,dep=TRUE)
 
             if(!require("BiocInstaller",character.only = T)){
-                biocLite("BiocInstaller")
+                # biocLite("BiocInstaller")
                 source("https://bioconductor.org/biocLite.R")
                 biocLite("BiocInstaller")
+                biocLite(package)
             }else{
                 biocLite(package)
             }
@@ -83,4 +84,3 @@ pkgTest <- function(package){
         }
     }
 }
-
