@@ -1,0 +1,11 @@
+Package: myMiscFunc
+Type: Package
+Title: Collection of custom functions
+Version: 0.2.2
+Date: 2016-02-19
+Author: pbaskaran
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: More about what it does (maybe more than one line)
+License: What license is it under?
+LazyData: TRUE
+RoxygenNote: 6.0.1
